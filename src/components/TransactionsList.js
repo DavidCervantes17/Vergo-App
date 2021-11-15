@@ -1,11 +1,17 @@
 import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import TransactionItem from './TransactionItem'
 
 export default function TransactionsList() {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
+            <TransactionItem/>
+            <TransactionItem/>
+            <TransactionItem/>
+            <TransactionItem/>
+            <TransactionItem/>
             
-        </View>
+        </ScrollView>
     )
 }
 const styles = StyleSheet.create({

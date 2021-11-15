@@ -1,11 +1,18 @@
 import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import PaymentItem from './PaymentItem'
 
-export default function PaymentsList() {
+export default function PaymentList() {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
+            <PaymentItem/>
+            <PaymentItem/>
+            <PaymentItem/>
+            <PaymentItem/>
+            <PaymentItem/>
+
             
-        </View>
+        </ScrollView>
     )
 }
 const styles = StyleSheet.create({
