@@ -24,6 +24,7 @@ export default function Main() {
           <Transactions />
         </View>
       </View>
+      <StatusBar style="light" />
     </SafeAreaView>
   );
 }

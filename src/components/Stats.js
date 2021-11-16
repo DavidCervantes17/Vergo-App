@@ -1,10 +1,13 @@
-import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import React from "react";
+import { View, StyleSheet } from "react-native";
 
 export default function Stats() {
-    return (
-        <View>
-            
-        </View>
-    )
+  return <View style={styles.container}></View>;
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#202020",
+  },
+});

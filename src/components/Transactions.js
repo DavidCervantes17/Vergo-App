@@ -21,8 +21,8 @@ export default function Transactions() {
 
     }}>
       <Tab.Screen 
-       name="My Transactions" component={TransactionsList} />
-      <Tab.Screen name="My Payments" component={PaymentsList} />
+       name="Last Transactions" component={TransactionsList} />
+      <Tab.Screen name="Last Payments" component={PaymentsList} />
     </Tab.Navigator>
     )
 }
