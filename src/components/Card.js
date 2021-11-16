@@ -4,17 +4,20 @@ import cardNumberFormat from '../utilities/cardNumberFormat'
 import numberFormat from '../utilities/numberFormat'
 
 export default function Card(props) {
-    const {firstName = "Einar", lastName = "Hohenstein", cardNumber ="1111222233334444", accountName="Debit Card", balance="1000000.79"} = props;
+    const { accountName="Debit Card", amount="1000000.79", color="#a0a0a0", type="Balance" } = props;
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, {backgroundColor:color}]}>
             <View style={styles.card}>
                 <View style={styles.containerUp}>
                     <Text  style={styles.textAccountName}>
                         {accountName}
                     </Text>
+                    <Text  style={styles.textType}>
+                        {type}
+                    </Text>
                     <Text  style={styles.textBalance}>
-                        {numberFormat(balance)}
+                        {numberFormat(amount)}
                     </Text>
                 </View>
                 <View style={styles.containerDown}>
@@ -30,11 +33,10 @@ export default function Card(props) {
 const styles = StyleSheet.create({
     container: {
         padding:24,
-        margin: 24,
+        marginLeft: 36,
         width: 300,
         height:170,
         maxHeight: 170,
-        backgroundColor: '#a0a0a0',
         borderRadius: 10
     },
     card: {
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
         color: '#000',
     },
     textBalance:{
-        marginTop:12,
+        marginTop:0,
         fontSize: 24,
         color: '#000',
         fontWeight: 'bold',
@@ -68,6 +70,11 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
         alignItems: 'flex-end',
         flexDirection: 'row', justifyContent: 'flex-end',
+    },
+    textType: {
+        color: '#000',
+        fontSize: 12,
+        marginTop:12
     }
 
     

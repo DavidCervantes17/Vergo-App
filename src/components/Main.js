@@ -1,22 +1,25 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from "react-native";
 import Greeting from "./Greeting";
 import Card from "./Card";
 import ActionButtons from "./ActionButtons";
 import Transactions from "./Transactions";
+import CardList from "./CardList";
 import { back } from "react-native/Libraries/Animated/Easing";
 
 export default function Main() {
   return (
     <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.containerScrollView}>
+
       <View style={styles.containerMargin}>
         <Greeting firstName={"David"} />
-        <View style={styles.cardContainer}>
-          <Card />
-        </View>
       </View>
-      <View style={styles.containerScrollView}>
+      <View style={styles.cardContainer}>
+          <CardList />
+        </View>
+      <View style={styles.containerScrollViewButtons}>
         <ActionButtons />
       </View>
       <View style={styles.roundBorder}>
@@ -25,6 +28,8 @@ export default function Main() {
         </View>
       </View>
       <StatusBar style="light" />
+    </ScrollView>
+      
     </SafeAreaView>
   );
 }
@@ -36,11 +41,9 @@ const styles = StyleSheet.create({
   },
   containerMargin: {
     margin: 24,
-    marginBottom: 0,
   },
-  containerScrollView: {
+  containerScrollViewButtons: {
     height: 56,
-    marginBottom: 12,
   },
   containerTransactions: {
     flex: 1,
@@ -54,8 +57,11 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 30,
     padding: 10,
     backgroundColor: "#fff",
+    marginTop: 12,
   },
   cardContainer: {
     alignSelf: "center",
   },
+  containerScrollView:{
+  }
 });

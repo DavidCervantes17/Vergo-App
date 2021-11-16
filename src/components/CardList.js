@@ -1,0 +1,26 @@
+import React from 'react'
+import { StyleSheet, Text, View, ScrollView } from "react-native";
+import Card from "./Card";
+
+export default function CardList() {
+
+    const handleScroll = (event) => {
+        console.log(event.nativeEvent.contentOffset.x);
+
+    }
+    return (
+        <ScrollView  onScroll={handleScroll} scrollEventThrottle={16} style={styles.container} horizontal={true} showsHorizontalScrollIndicator={false}>
+            <Card color="#7fc4b4" amount="109873.98" accountName="Debit Card" type="Balance"/>
+            <Card color="#b6daee" amount="64.98"  accountName="Credit Card" type="Used Balance"/>
+            <Card color="#fa9984" amount="100.98"  accountName="Joe's Project" type="Used Balance"/>
+        </ScrollView>
+    )
+}
+
+const styles = StyleSheet.create({
+    container: {
+      maxHeight:200,
+    },
+    
+  });
+  
