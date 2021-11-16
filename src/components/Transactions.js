@@ -9,10 +9,20 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function Transactions() {
     return (
-     <Tab.Navigator>
-      <Tab.Screen name="My Transactions" component={TransactionsList} />
-      <Tab.Screen name="My Payments" component={PaymentsList} />
+     <Tab.Navigator
+     screenOptions={{
+      tabBarLabelStyle: { fontSize: 12 },
+      tabBarStyle: { backgroundColor: '#fff' },
+      tabBarActiveTintColor: "#000",
+      tabBarInactiveTintColor:"#000",
+      tabBarActiveTintColor:{
+        backgroundColor: '#000'
+      }
 
+    }}>
+      <Tab.Screen 
+       name="My Transactions" component={TransactionsList} />
+      <Tab.Screen name="My Payments" component={PaymentsList} />
     </Tab.Navigator>
     )
 }

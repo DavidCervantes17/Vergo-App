@@ -8,22 +8,39 @@ import Main from "./src/components/Main";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Transactions from "./src/components/Transactions";
+import Account from "./src/components/Account";
+import Project from "./src/components/Project";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Settings from "./src/components/Settings";
 import Referrals from "./src/components/Referrals";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
-import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUserFriends,
+  faCreditCard,
+  faCog,
+  faHome,
+  faChartPie,
+  faThLarge,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+
+  const MyTheme = {
+    dark: false,
+    colors: {
+      primary: 'rgb(0, 0, 0)',
+      card: 'rgb(255, 255, 255)',
+    },
+  };
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
+          tabBarShowLabel: false,
         }}
       >
         <Tab.Screen
@@ -31,10 +48,9 @@ export default function App() {
           component={Main}
           options={{
             title: "Home",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            tabBarIcon: () => <FontAwesomeIcon size={26} icon={faHome} />,
+            tabBarIcon: ({ focused, color, }) => (
+              <FontAwesomeIcon size={26} icon={faHome} color={color} />
+            ),
           }}
         />
         <Tab.Screen
@@ -42,10 +58,10 @@ export default function App() {
           component={Settings}
           options={{
             title: "Settings",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            tabBarIcon: () => <FontAwesomeIcon size={26} icon={faCog} />,
+
+            tabBarIcon: ({ focused, color }) => (
+              <FontAwesomeIcon size={26} icon={faCreditCard} color={color} />
+            ),
           }}
         />
         <Tab.Screen
@@ -53,11 +69,30 @@ export default function App() {
           component={Referrals}
           options={{
             title: "Referrals",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            tabBarIcon: () => (
-              <FontAwesomeIcon size={26} icon={faUserFriends} />
+
+            tabBarIcon: ({ focused, color }) => (
+              <FontAwesomeIcon size={26} icon={faChartPie} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Project"
+          component={Project}
+          options={{
+            title: "Project",
+
+            tabBarIcon: ({ focused, color }) => (
+              <FontAwesomeIcon size={26} icon={faThLarge} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Account"
+          component={Account}
+          options={{
+            title: "Account",
+            tabBarIcon: ({ focused, color }) => (
+              <FontAwesomeIcon size={26} icon={faUser} color={color} />
             ),
           }}
         />
