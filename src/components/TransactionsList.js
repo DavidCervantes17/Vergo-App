@@ -6,10 +6,10 @@ import { faPlane, faWrench, faHamburger, faMoneyBill } from "@fortawesome/free-s
 export default function TransactionsList() {
     return (
         <ScrollView style={styles.container}>
-            <TransactionItem backgroundColor="#7fc4b4" icon = {faPlane }title= "ADO" date= "13 Novimebre 2021 14:26" amount="$255.00" cashback="+ $12.50"/>
-            <TransactionItem backgroundColor="#ff9688" icon = {faWrench }title= "Home Depot" date= "8 Novimebre 2021 12:26" amount="$255.00" cashback="+ $12.50"/>
-            <TransactionItem backgroundColor="#ff6961" icon = {faHamburger }title= "McDonald's" date= "7 Novimebre 2021 12:26" amount="$255.00" cashback="+ $12.50"/>
-            <TransactionItem backgroundColor="#77dd77" icon = {faMoneyBill }title= "Cash Withdrawal" date= "6 Novimebre 2021 12:26" amount="$255.00" cashback="+ $12.50"/>
+            <TransactionItem backgroundColor="#7fc4b4" icon = {faPlane }title= "ADO" date= "November 14  2021 14:26" amount="$255.00" cashback="+ $12.50"/>
+            <TransactionItem backgroundColor="#ff9688" icon = {faWrench }title= "Home Depot" date= "November 13  2021 14:26" amount="$255.00" cashback="+ $12.50"/>
+            <TransactionItem backgroundColor="#ff6961" icon = {faHamburger }title= "McDonald's" date= "November 12  2021 14:26" amount="$255.00" cashback="+ $12.50"/>
+            <TransactionItem backgroundColor="#77dd77" icon = {faMoneyBill }title= "Cash Withdrawal" date= "November 11  2021 14:26" amount="$255.00" cashback="+ $12.50"/>
             <TransactionItem/>
             
         </ScrollView>
