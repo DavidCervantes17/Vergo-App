@@ -19,7 +19,7 @@ export default function Greeting(props) {
         }
         //Night
         if((hours >= 20 && hours <= 23) || (hours >= 0 && hours <= 4)){
-            return "Good Evening"
+            return "Good Night"
         }
     }
 
