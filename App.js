@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import Main from "./src/components/Main";
+import MainNavigator from "./src/components/MainNavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import Account from "./src/components/Account";
 import Project from "./src/components/Project";
@@ -37,8 +37,8 @@ export default function App() {
         }}
       >
         <Tab.Screen
-          name="Main"
-          component={Main}
+          name="MainNavigator"
+          component={MainNavigator}
           options={{
             title: "Home",
             tabBarIcon: ({ focused, color }) => (

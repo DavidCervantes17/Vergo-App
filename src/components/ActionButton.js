@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 export default function ActionButton(props) {
   const { title = "Send", icon = faPaperPlane } = props;
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={props.onPress} style={styles.container}>
       <View style={styles.icon}>
         <View>
           <FontAwesomeIcon size={26} icon={icon} />

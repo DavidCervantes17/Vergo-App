@@ -8,7 +8,7 @@ import Transactions from "./Transactions";
 import CardList from "./CardList";
 import { back } from "react-native/Libraries/Animated/Easing";
 
-export default function Main() {
+export default function Main({navigation}) {
   const windowWidth = Dimensions.get("window").width;
 
   return (
@@ -29,7 +29,7 @@ export default function Main() {
           <CardList />
         </View>
         <View style={styles.containerScrollViewButtons}>
-          <ActionButtons />
+          <ActionButtons navigation={navigation} />
         </View>
         <View style={styles.roundBorder}>
           <View style={styles.containerTransactions}>
