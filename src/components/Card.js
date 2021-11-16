@@ -48,12 +48,13 @@ const styles = StyleSheet.create({
   },
   textAccountName: {
     color: "#000",
+    fontWeight:"500"
   },
   textBalance: {
     marginTop: 0,
     fontSize: 24,
     color: "#000",
-    fontWeight: "bold",
+    fontWeight: "600",
   },
   image: {
     marginTop: 24,
