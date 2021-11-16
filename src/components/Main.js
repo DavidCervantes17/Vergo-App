@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, ScrollView } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, Dimensions } from "react-native";
 import Greeting from "./Greeting";
 import Card from "./Card";
 import ActionButtons from "./ActionButtons";
@@ -9,27 +9,35 @@ import CardList from "./CardList";
 import { back } from "react-native/Libraries/Animated/Easing";
 
 export default function Main() {
+  const windowWidth = Dimensions.get("window").width;
+
   return (
     <SafeAreaView style={styles.container}>
-    <ScrollView style={styles.containerScrollView}>
-
-      <View style={styles.containerMargin}>
-        <Greeting firstName={"David"} />
-      </View>
-      <View style={styles.cardContainer}>
+      <ScrollView style={styles.containerScrollView}
+      scrollEventThrottle={16}
+      style={styles.container}
+      showsVerticalScrollIndicator={false}
+      disableIntervalMomentum={true}
+      snapToInterval={windowWidth}
+      decelerationRate={"fast"}
+      pagingEnabled={true}
+      >
+        <View style={styles.containerMargin}>
+          <Greeting firstName={"David"} />
+        </View>
+        <View style={styles.cardContainer}>
           <CardList />
         </View>
-      <View style={styles.containerScrollViewButtons}>
-        <ActionButtons />
-      </View>
-      <View style={styles.roundBorder}>
-        <View style={styles.containerTransactions}>
-          <Transactions />
+        <View style={styles.containerScrollViewButtons}>
+          <ActionButtons />
         </View>
-      </View>
-      <StatusBar style="light" />
-    </ScrollView>
-      
+        <View style={styles.roundBorder}>
+          <View style={styles.containerTransactions}>
+            <Transactions />
+          </View>
+        </View>
+        <StatusBar style="light" />
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -62,6 +70,5 @@ const styles = StyleSheet.create({
   cardContainer: {
     alignSelf: "center",
   },
-  containerScrollView:{
-  }
+  containerScrollView: {},
 });
