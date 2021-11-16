@@ -38,6 +38,13 @@ export default function CardList() {
         accountName="Joe's Project"
         type="Used Balance"
       />
+      <Card
+        color="#ff6961"
+        amount="500.98"
+        accountName="Katy's Project"
+        type="Used Balance"
+      />
+      
     </ScrollView>
   );
 }
