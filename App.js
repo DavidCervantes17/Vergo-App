@@ -41,7 +41,7 @@ export default function App() {
           name="Settings"
           component={Settings}
           options={{
-            title: "Referrals",
+            title: "Settings",
             headerTitleStyle: {
               fontWeight: "bold",
             },

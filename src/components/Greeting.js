@@ -35,6 +35,7 @@ export default function Greeting(props) {
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop:12
     },
     text: {
         fontSize: 24,

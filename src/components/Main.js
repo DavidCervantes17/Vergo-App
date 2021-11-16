@@ -13,7 +13,9 @@ export default function Main() {
           
         <View style={styles.containerMargin}>
         <Greeting firstName={"David"}/>
+        <View style={styles.cardContainer}>
         <Card/>
+        </View>
         </View>
         <View style={styles.containerScrollView}>
           <ActionButtons/>
@@ -59,5 +61,8 @@ export default function Main() {
         borderTopRightRadius:30,
         padding:10,
         backgroundColor: '#fff'
+    },
+    cardContainer:{
+      alignSelf:"center",
     }
   });
