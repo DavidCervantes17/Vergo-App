@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,11 +9,16 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import LottieView from "lottie-react-native";
+
 import RecipientList from "./RecipientList";
 import numberFormat from "../utilities/numberFormat";
+
 let height = Dimensions.get("window").height;
 
-export default function PaymentForm({navigation}) {
+export default function PaymentForm({ navigation }) {
+  let animation = React.createRef();
+
   const [recipients, setRecipients] = useState([
     { name: "Daniel Hernandez", id: "1" },
     { name: "Juan Gonzales", id: "2" },
@@ -25,12 +30,15 @@ export default function PaymentForm({navigation}) {
   const [idRecipient, setIdRecipient] = useState("");
   const [selectedRecipient, setSelectedRecipient] = useState("");
 
-
   const next = (page) => {
     scrollViewRef.current?.scrollTo({
       y: height * page,
       animated: true,
     });
+
+    if (page == 3) {
+      animation.current.play();
+    }
   };
 
   const onChangeNumber = (text) => {
@@ -51,9 +59,9 @@ export default function PaymentForm({navigation}) {
             recipients={recipients}
             onPress={(recipient) => {
               next(1);
-              console.log("id",id)
+              console.log("id", id);
               setIdRecipient(recipient.id);
-            setSelectedRecipient(recipient.name)
+              setSelectedRecipient(recipient.name);
             }}
           />
         </View>
@@ -63,8 +71,7 @@ export default function PaymentForm({navigation}) {
             style={styles.input}
             onChangeText={onChangeNumber}
             value={number}
-            keyboardType='numeric'
-
+            keyboardType="numeric"
           />
           <TouchableOpacity onPress={() => next(2)} style={styles.button}>
             <Text style={styles.textButton}>Confirm</Text>
@@ -84,8 +91,27 @@ export default function PaymentForm({navigation}) {
           </TouchableOpacity>
         </View>
         <View style={styles.viewContainerGreen}>
-          <Text style={[styles.textTitle, {textAlign:"center", justifyContent:"center"}]}>Payment Send Successfully!</Text>
-          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button}>
+          <Text
+            style={[
+              styles.textTitle,
+              { textAlign: "center", justifyContent: "center" },
+            ]}
+          >
+            Payment Send Successfully!
+          </Text>
+          <LottieView
+            ref={animation}
+            loop={false}
+            style={{
+              width: 200,
+              height: 200,
+            }}
+            source={require("../animations/64787-success.json")}
+          />
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={[styles.button, { width: 300 }]}
+          >
             <Text style={styles.textButton}>Go back</Text>
           </TouchableOpacity>
         </View>
@@ -100,7 +126,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#202020",
   },
   viewContainer: {
-      padding:24,
+    padding: 24,
     height,
   },
   textTitle: {
@@ -151,9 +177,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#404040",
   },
-  viewContainerGreen:{
-      backgroundColor: "#a3d0b5",
-      height,
-      paddingTop: height/4
-    }
+  viewContainerGreen: {
+    backgroundColor: "#a3d0b5",
+    height,
+    paddingTop: height / 4,
+    alignItems: "center",
+  },
 });
