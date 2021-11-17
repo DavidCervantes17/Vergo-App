@@ -59,7 +59,6 @@ export default function PaymentForm({ navigation }) {
             recipients={recipients}
             onPress={(recipient) => {
               next(1);
-              console.log("id", id);
               setIdRecipient(recipient.id);
               setSelectedRecipient(recipient.name);
             }}
