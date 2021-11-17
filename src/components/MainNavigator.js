@@ -21,7 +21,7 @@ export default function MainNavigator() {
         <Stack.Screen name="Payment" component={PaymentForm}
         
         options={{
-            headerShown: true,
+            headerShown: false,
             tabBarShowLabel: true,
           }}
         />
